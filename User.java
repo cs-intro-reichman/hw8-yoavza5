@@ -99,15 +99,15 @@
     /** Counts the number of users that both this user and the other user follow.
     /*  Notice: This is the size of the intersection of the two follows lists. */
     public int countMutual(User other) {
-        int n = 0;
-        for(int i = 0; i < fCount;i++)
-        {
-            if(other.follows(follows[i]))
-            {
-                n++;
+        int mutualCount = 0;
+        for (int i = 0; i < this.fCount; i++) {
+            for (int j = 0; j < other.fCount; j++) {
+                if (this.follows[i].equals(other.follows[j])) {
+                    mutualCount++;
+                }
             }
         }
-        return n;
+        return mutualCount;
     }
 
     /** Checks is this user is a friend of the other user.
