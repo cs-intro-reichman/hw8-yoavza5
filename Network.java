@@ -65,8 +65,11 @@ public class Network {
         if (u1 == null || u2 == null) {
             return false;
         }
-        u1.addFollowee(name2);
-        return true;
+        if (name1.equals(name2)) 
+        {
+            return false;    
+        }
+        return u1.addFollowee(name2);
     }
     
     /** For the user with the given name, recommends another user to follow. The recommended user is
